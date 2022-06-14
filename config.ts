@@ -1,10 +1,10 @@
 export const configData = {
-  baseUrl: 'https://hrapi.braincraftapps.com',
-  frontendUrl: 'https://hr.braincraftapps.com',
+  baseUrl: 'http://localhost:5000',
+  frontendUrl: 'http://localhost:3000',
 
   mongo: {
     url: 'mongodb://localhost:27017',
-    dbName: 'boiler-plate',
+    dbName: 'memories',
   },
   google: {
     clientId:
