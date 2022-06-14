@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import passport from "passport";
 import { ConfigService } from "../../services/utility/configService";
-import { generateToken } from "../../services/utility/functions";
+import { generateToken } from "../../middlewares/jwt.varification";
 import "./route.auth";
 dotenv.config();
 
