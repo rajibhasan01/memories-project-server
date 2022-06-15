@@ -45,6 +45,9 @@ export class DbPost {
           reject(result);
         }
         await dbConn.close();
+      }).catch((error) => {
+        console.log("Error in CreatePost method of DbPost class: ", error);
+        throw error;
       });
     } catch (error) {
       console.log(
@@ -57,8 +60,8 @@ export class DbPost {
    * GetTransactionList
    */
   public GetPostList() {
-    return new Promise(async (resolve, reject) => {
-      try {
+    try {
+      return new Promise(async (resolve, reject) => {
         const dbConn = await this.getDbConnection();
         const db = dbConn.db(config.mongo.dbName);
         const dbCollection = db.collection(this.collectionName);
@@ -68,12 +71,15 @@ export class DbPost {
         } else {
           reject("error getting ther Post");
         }
-      } catch (error) {
-        console.log(
-          "Error in GetPostList method of DbPost class: ",
-          error.message
-        );
-      }
-    });
+      }).catch((error) => {
+        console.log("Error in GetPostList method of DbPost class: ", error);
+        throw error;
+      });
+    } catch (error) {
+      console.log(
+        "Error in GetPostList method of DbPost class: ",
+        error.message
+      );
+    }
   }
 }

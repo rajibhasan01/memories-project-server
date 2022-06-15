@@ -7,7 +7,7 @@ export const getPosts = async (req: Request, res: any) => {
   try {
     await postService
       .GetPostList()
-      .then((result:any) => {
+      .then((result: any) => {
         if (result.length > 0) {
           res.status(200).json(result);
         } else {
@@ -23,7 +23,7 @@ export const getPosts = async (req: Request, res: any) => {
   }
 };
 
-export const createPost = async (req:any, res: any) => {
+export const createPost = async (req: any, res: any) => {
   const data: Post = req.body;
   try {
     await postService

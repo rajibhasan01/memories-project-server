@@ -21,6 +21,9 @@ export class PostService implements PostInterface {
           .CreatePost(postData)
           .then((res) => resolve("Post added Successfully"))
           .catch((err) => reject("Failed to add post. Please try again"));
+      }).catch((error) => {
+        console.log("Error in AddPost method of PostService class: ", error);
+        throw error;
       });
     } catch (error) {
       console.log("Error in AddPost method of PostService class: ", error);
@@ -33,9 +36,15 @@ export class PostService implements PostInterface {
           .GetPostList()
           .then((result) => resolve(result))
           .catch((err) => reject(err));
+      }).catch((error) => {
+        console.log(
+          "Error in GetPostList method of PostService class: ",
+          error
+        );
+        throw error;
       });
     } catch (error) {
-      console.log("Error in AddPost method of PostService class: ", error);
+      console.log("Error in GetPostList method of PostService class: ", error);
     }
   }
 }
