@@ -1,4 +1,3 @@
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import passport from "passport";
@@ -10,7 +9,6 @@ dotenv.config();
 const config = ConfigService.getInstance().getConfig();
 const loginRoute = express.Router();
 loginRoute.use(passport.initialize());
-loginRoute.use(cors());
 
 loginRoute.get("/", (req, res) => {
   res.send("<a href=/login/auth/google> Login with Google </a>");
